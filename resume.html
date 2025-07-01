@@ -28,10 +28,9 @@
 						<li><a href="index.html">Home</a></li>
 						<li><a href="skill.html">Skills</a></li>
 						<li><a href="project.html">Projects</a></li>
-						<li><a href="aboutus.html">About </a></li>
-                        <li><a href="resume.html">Resume</a></li>
+						<li><a href="aboutus.html">About</a></li>
+						<li><a href="resume.html">Resume</a></li>
 						<li><a href="contactus.html">Contact</a></li>
-						
 					</ul>
 					<a href="#" class="close">Close</a>
 				</div>
@@ -60,6 +59,12 @@
 						<section>
 							<h3 class="major">Summary</h3>
 							<p>I’m a Computer Science Engineering student and a passionate full-stack developer. I specialize in building scalable web applications using the MERN stack. I’m experienced in backend APIs, frontend UI/UX, and security best practices.</p>
+							
+							<!-- Toggle Summary Button -->
+							<button id="toggleSummaryBtn" class="button">Show More</button>
+							<p id="extraSummary" style="display: none;">
+								I also have strong experience with Git, GitHub, and teamwork using Agile methodologies. I'm always curious to explore modern tools, APIs, and new technologies to deliver optimized, scalable, and maintainable code.
+							</p>
 						</section>
 
 						<section>
@@ -92,44 +97,49 @@
 
 			<!-- Footer -->
 			<section id="footer">
-						<div class="inner">
-							<h2 class="major">Get in touch</h2>
-							<p>Feel free to reach out for collaboration, questions, or just to say hi!</p>
-							<form action="https://formspree.io/f/xgvydprn" method="POST">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-							<ul class="contact">
-								<li class="icon solid fa-home">
-									Karak Niwas<br />
-									Kamla Road, Jayanagar<br />
-									Madhubani, Bihar
-								</li>
-								<li class="icon solid fa-phone">6201686801</li>
-								<li class="icon solid fa-envelope"><a href="#">rahul.karak@mantratec.com</a></li>
-								<li class="icon brands fa-facebook-f"><a href="https://www.facebook.com/rahul.karak.353458">Facebook</a></li>
-								<li class="icon brands fa-instagram"><a href="https://www.instagram.com/rahulkarak_/">Instagram</a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: Rahul Karak</li>
-							</ul>
+				<div class="inner">
+					<h2 class="major">Get in touch</h2>
+					<p>Feel free to reach out for collaboration, questions, or just to say hi!</p>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" />
+							</div>
+							<div class="field">
+								<label for="email">Email</label>
+								<input type="email" name="email" id="email" />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="4"></textarea>
+							</div>
 						</div>
-					</section>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" /></li>
+						</ul>
+					</form>
+					<ul class="contact">
+						<li class="icon solid fa-home">
+							Karak Niwas<br />
+							Kamla Road, Jayanagar<br />
+							Madhubani, Bihar
+						</li>
+						<li class="icon solid fa-phone">6201686801</li>
+						<li class="icon solid fa-envelope"><a href="#">rahul.karak@mantratec.com</a></li>
+						<li class="icon brands fa-facebook-f"><a href="https://www.facebook.com/rahul.karak.353458">Facebook</a></li>
+						<li class="icon brands fa-instagram"><a href="https://www.instagram.com/rahulkarak_/">Instagram</a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Rahul Karak. All rights reserved.</li><li>Design: Rahul Karak</li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- Scroll-to-Top Button -->
+			<button id="scrollTopBtn" style="display:none; position:fixed; bottom:30px; right:30px; padding:10px 15px; font-weight:bold; border:none; background-color:#4CAF50; color:white; border-radius:5px; cursor:pointer; z-index:1000;">
+				↑ Top
+			</button>
 
 		</div>
 
@@ -140,6 +150,28 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<!-- jQuery Enhancements -->
+		<script>
+			// Toggle Summary
+			$('#toggleSummaryBtn').click(function() {
+				$('#extraSummary').slideToggle();
+				$(this).text($(this).text() === 'Show More' ? 'Show Less' : 'Show More');
+			});
+
+			// Scroll to Top Button
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 100) {
+					$('#scrollTopBtn').fadeIn();
+				} else {
+					$('#scrollTopBtn').fadeOut();
+				}
+			});
+			$('#scrollTopBtn').click(function() {
+				$('html, body').animate({scrollTop : 0}, 600);
+				return false;
+			});
+		</script>
 
 	</body>
 </html>
